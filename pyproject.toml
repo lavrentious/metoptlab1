@@ -18,6 +18,12 @@ packages = [{include = "src"}]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 
+[tool.poetry.group.dev.dependencies]
+isort = "^6.0.1"
+autoflake = "^2.3.1"
+mypy = "^1.15.0"
+black = "^25.1.0"
+
 [tool.mypy]
 mypy_path = "src"
 explicit_package_bases = true

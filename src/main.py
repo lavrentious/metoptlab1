@@ -1,15 +1,12 @@
-from utils import fn, df, d2f, INTERVAL_L, INTERVAL_R
-from binary import binary_search
-from golden_ratio import golden_ratio
+from utils import fn, df, INTERVAL_L, INTERVAL_R
 from typing import Callable
 from chord import chord
-from newton import newton
 
 
 def print_result(
     fn: Callable[[float], float],
     solve_fn: Callable[[Callable[[float], float], float, float], float],
-):
+) -> None:
     xm = solve_fn(fn, INTERVAL_L, INTERVAL_R)
     ym = fn(xm)
     print(f"xm = {xm}, ym = {ym}")

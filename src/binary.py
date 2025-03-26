@@ -1,8 +1,10 @@
-from typing import Callable, List
+from typing import Callable
 from utils import EPS
 
 
-def binary_search(fn: Callable[[float], float], a: float, b: float, eps=EPS) -> float:
+def binary_search(
+    fn: Callable[[float], float], a: float, b: float, eps: float = EPS
+) -> float:
     """
     returns xm
     """

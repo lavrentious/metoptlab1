@@ -1,8 +1,10 @@
-from typing import Callable, List
+from typing import Callable
 from utils import EPS
 
 
-def golden_ratio(fn: Callable[[float], float], a: float, b: float, eps=EPS) -> float:
+def golden_ratio(
+    fn: Callable[[float], float], a: float, b: float, eps: float = EPS
+) -> float:
     i = 0
 
     def calc(

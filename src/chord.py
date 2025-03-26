@@ -1,4 +1,4 @@
-from typing import Callable, List
+from typing import Callable
 from utils import EPS
 
 
@@ -7,7 +7,7 @@ def chord(
     df: Callable[[float], float],
     a: float,
     b: float,
-    eps=EPS,
+    eps: float=EPS,
 ) -> float:
     """
     returns xm

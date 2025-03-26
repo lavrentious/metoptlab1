@@ -1,4 +1,4 @@
-from typing import Callable, List
+from typing import Callable
 from utils import EPS
 
 
@@ -8,7 +8,7 @@ def newton(
     d2f: Callable[[float], float],
     a: float,
     b: float,
-    eps=EPS,
+    eps: float = EPS,
 ) -> float:
     """
     returns xm
