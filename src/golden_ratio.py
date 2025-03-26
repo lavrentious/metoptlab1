@@ -17,7 +17,6 @@ def golden_ratio(
             x1 = a + 0.382 * (b - a)
         if x2 is None:
             x2 = a + 0.618 * (b - a)
-        print(i, a, b, x1, x2, fn(x1), fn(x2), "<" if fn(x1) < fn(x2) else ">")
         i += 1
         if fn(x1) < fn(x2):
             return calc(a, x2, None, x1)
