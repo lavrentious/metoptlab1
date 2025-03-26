@@ -1,6 +1,6 @@
 from math import sin
 
-EPS = 0.001
+EPS = 0.0001
 
 INTERVAL_L = 0.0
 INTERVAL_R = 1.0
