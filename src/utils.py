@@ -5,6 +5,8 @@ EPS = 0.0001
 INTERVAL_L = 0.0
 INTERVAL_R = 1.0
 
+QA_STEP = 0.1
+
 
 def fn(x: float) -> float:
     return x**3 - 3 * sin(x)
