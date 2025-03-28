@@ -39,9 +39,10 @@ def quadratic_approximation(
         denom = (x2 - x3) * f1 + (x3 - x1) * f2 + (x1 - x2) * f3
 
         if verbose:
-            print(
-                f"Итерация {iteration}: x1={x1:.6f}, f1={f1:.6f}, x2={x2:.6f}, f2={f2:.6f}, x3={x3:.6f}, f3={f3:.6f}"
-            )
+            print(f"\nИтерация {iteration}:")
+            print(f"x1 = {x1}\tf1 = {f1}")
+            print(f"x2 = {x2}\tf2 = {f2}")
+            print(f"x3 = {x3}\tf3 = {f3}")
 
         if denom == 0:
             if verbose:
@@ -53,20 +54,23 @@ def quadratic_approximation(
         fline = fn(xline)
 
         if verbose:
-            print(
-                f"xline={xline:.6f}, fline={fline:.6f}, fmin={fmin:.6f}, xmin={xmin:.6f}"
-            )
+            print(f"xmin = {xmin} ; fmin = {fmin}")
+            print(f"xline = {xline} ; fline = {fline}")
+            print(f"|(fmin - fline) / fline| = {abs((fmin - fline) / fline)}")
+            print(f"|(xmin - xline) / xline| = {abs((xmin - xline) / xline)}")
 
         cond1 = abs((fmin - fline) / fline) < eps1
         cond2 = abs((xmin - xline) / xline) < eps2
+        xs = [x1, x2, x3, xline]
         if cond1 and cond2:
             if verbose:
-                print(f"Результат: x*={xline:.6f}")
+                print(f"Результат: x*={xline}")
             return xline
-        elif x1 <= xline <= x3:
-            x2 = min(xline, xmin)
-            x1, x3 = x2 - QA_STEP, x2 + QA_STEP
-            f1, f2, f3 = fline, fn(x2), fn(x3)
+        elif min(x1, x3) <= xline <= max(x1, x3):
+            x2 = xmin if fmin < fline else xline
+            x1 = max(filter(lambda x: x < x2, xs))
+            x3 = min(filter(lambda x: x > x2, xs))
+            f1, f2, f3 = fn(x1), fn(x2), fn(x3)
         else:
             x1, f1, x2, f2, x3, f3 = get_x1_x2_x3(xline)
 
