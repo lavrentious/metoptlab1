@@ -1,11 +1,11 @@
 from typing import Callable
 
 from argparser import ArgParser
-from binary import binary_search
-from chord import chord
-from golden_ratio import golden_ratio
-from newton import newton
-from quadratic_approximation import quadratic_approximation
+from solvers.binary import binary_search
+from solvers.chord import chord
+from solvers.golden_ratio import golden_ratio
+from solvers.newton import newton
+from solvers.quadratic_approximation import quadratic_approximation
 from utils import INTERVAL_L, INTERVAL_R, d2f, df, fn
 
 
