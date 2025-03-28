@@ -66,8 +66,8 @@ def quadratic_approximation(
             if verbose:
                 print(f"Результат: x*={xline}")
             return xline
-        elif min(x1, x3) <= xline <= max(x1, x3):
-            x2 = xmin if fmin < fline else xline
+        elif min(x1, x2, x3) <= xline <= max(x1, x2, x3):
+            x2 = min(xmin, xline, key=lambda x: fn(x))
             x1 = max(filter(lambda x: x < x2, xs))
             x3 = min(filter(lambda x: x > x2, xs))
             f1, f2, f3 = fn(x1), fn(x2), fn(x3)
