@@ -1,4 +1,5 @@
 from math import sin
+from typing import Callable
 
 EPS = 0.0001
 
@@ -21,11 +22,11 @@ def fn(x: float) -> float:
 #     return 6 * x + 3 * sin(x)
 
 
-def df(x: float) -> float:
+def df(fn: Callable[[float], float], x: float) -> float:
     H = 0.0001
     return (fn(x + H) - fn(x - H)) / (2 * H)
 
 
-def d2f(x: float) -> float:
+def d2f(fn: Callable[[float], float], x: float) -> float:
     H = 0.0001
     return (fn(x + H) - 2 * fn(x) + fn(x - H)) / H**2
